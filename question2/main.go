@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 	"questions/question2/src/httpHandler"
 
 	"github.com/joho/godotenv"
@@ -15,6 +16,7 @@ func main() {
 
 	server := http.NewServeMux()
 	httpHandler.Request("/movies", "GET", server)
+	httpHandler.Request("/movies/", "GET", server)
 
-	http.ListenAndServe(":8080", server)
+	http.ListenAndServe(":"+os.Getenv("PORT"), server)
 }

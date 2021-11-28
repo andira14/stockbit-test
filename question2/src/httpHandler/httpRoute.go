@@ -6,5 +6,6 @@ import (
 )
 
 var handlerMapper = map[string]http.HandlerFunc{
-	"GET/movies": movies.GetMovies,
+	"GET/movies":  movies.GetMovies,
+	"GET/movies/": movies.GetMovieDetail,
 }
